@@ -21,9 +21,7 @@ func SendMetrics(metrics []*model.MetricValue, resp *model.TransferResponse) {
 		if _, ok := TransferClients[addr]; !ok {
 			initTransferClient(addr)
 		}
-		if updateMetrics(addr, metrics, resp) {
-			break
-		}
+		updateMetrics(addr, metrics, resp)
 	}
 }
 
